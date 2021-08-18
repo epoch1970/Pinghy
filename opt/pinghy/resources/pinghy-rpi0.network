@@ -1,0 +1,17 @@
+# Part of Pinghy - https://github.com/epoch1970/Pinghy.git
+# IP network definition for systemd-networkd
+#
+# Install or link this file to /etc/systemd/network/ and enable
+# systemd-networkd
+#
+[Match]
+Name=rpi0
+Type=wlan
+WLANInterfaceType=ap
+
+[Network]
+DHCPServer=true
+MulticastDNS=true
+
+[Address]
+Address=0.0.0.0/24

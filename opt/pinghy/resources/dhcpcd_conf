@@ -1,0 +1,11 @@
+
+# Part of Pinghy - https://github.com/epoch1970/Pinghy.git
+# Append this file to /etc/dhcpcd.conf
+# Note: head/tail lines intentionally blank
+
+interface rpi0
+iaid dc:a6:32:00
+env wpa_supplicant_conf=/run/pinghy/wpa_supplicant-rpi0.conf
+noipv6
+static ip_address=
+

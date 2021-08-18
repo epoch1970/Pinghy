@@ -1,0 +1,5 @@
+# Part of Pinghy - https://github.com/epoch1970/Pinghy.git
+# Elevated execution rights following a key press
+#
+# Install or link this file to /etc/sudoers.d/020-pinghy-from-nobody
+nobody ALL=(ALL) NOPASSWD: /opt/pinghy/pinghy.sh

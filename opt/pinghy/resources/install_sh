@@ -1,0 +1,35 @@
+#!/bin/sh -x
+srcdir='/opt/pinghy/resources'
+[ -d "${srcdir}" ] || exit 1
+[ "$(id -u)" -eq 0 ] || { echo "Run me as root."; exit 1; }
+
+# Install sudoer file to let user nobody execute pinghy.sh as root
+ln -s "${srcdir}"/020-pinghy-from-nobody /etc/sudoers.d/
+
+# Append a gpio-key configuration line for a GPIO button
+cat "${srcdir}"/config_txt >> /boot/config.txt
+
+# Install a Triggerhappy configuration file for a keyboard key
+ln -s "${srcdir}"/pinghy-trigger.conf /etc/triggerhappy/triggers.d/
+
+# Append interface configuration for rpi0
+cat "${srcdir}"/dhcpcd_conf >> /etc/dhcpcd.conf
+
+# Install network IP configuration
+ln -s "${srcdir}"/pinghy-rpi0.network /etc/systemd/network/
+
+# Enable systemd-networkd
+systemctl enable systemd-networkd
+
+if grep -q "stage4" /boot/issue.txt; then # Desktop install
+	# Install and enable desktop notifications
+	apt update
+	apt install xfce4-notifyd libnotify-bin
+	sed -i -e "s/\(p_ui_msg_gui\)=./\1=1/" /opt/pinghy/preferences_sh
+
+	# Install and enable the Pinghy icon
+	wget -O "${srcdir}"/gummiboot.svg https://openclipart.org/download/171034
+	sed -i -e "s/#\(p_ui_msg_gui_icon=.*gummiboot.svg\)/\1/" /opt/pinghy/preferences_sh
+fi
+
+#EOF

@@ -1,0 +1,14 @@
+# Part of Pinghy - https://github.com/epoch1970/Pinghy.git
+# AP configuration file for wpa_supplicant
+#
+# Required by dhcpcd 
+ctrl_interface=DIR=/var/run/wpa_supplicant GROUP=netdev 
+# Worldwide frequencies, overriden by specific code if set in STA config
+country=00
+
+network={
+    ssid="Pinghy" # Changed at runtime
+    mode=2
+    # Open access. FIXME Use OWE instead?
+    key_mgmt=NONE
+}

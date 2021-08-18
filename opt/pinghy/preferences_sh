@@ -1,0 +1,25 @@
+# Part of Pinghy - https://github.com/epoch1970/Pinghy.git
+# NOTE: This file is shell code sourced by pinghy.sh
+#
+p_ui_leds=1	# Flash platform LEDs to show AP on or off.
+		# bool. Default on (1)
+p_ui_msg=1	# Send text alerts to tell logged-in users AP on or off.
+		# bool. Default on (1)
+p_ui_msg_gui=0	# Send messages to GUI users via send-notify/notifyd.
+		# Depends on: "apt install xfce4-notifyd libnotify-bin".
+		# bool. Default on (1). Overriden by $p_ui_msg
+p_ui_msg_cli=1	# Broadcast a text message to CLI users via wall.
+		# bool. Default on (1). Overriden by $p_ui_msg
+p_ns_quiesce=0	# How many seconds minimum the phy has to stay away in its
+		# temporary namespace to give time for the host to reconfigure.
+		# If the AP does not start/stop repeatably, try increasing this.
+		# int. Default: 5
+#p_ap_ssid='fixed SSID'	# Use SSID name $p_ap_ssid instead of generating one
+			# NOTE: Be sure to use a unique SSID. Remove directory
+			# /run/pinghy after changing this setting.
+			# string. Default empty
+#p_ui_msg_gui_icon='/opt/pinghy/resources/gummiboot.svg'
+		# Icon displayed in notification windows. This one:
+		# https://openclipart.org/detail/171034/rubber-boat-by-gnokii-171034
+		# Public domain (CC Zero license)
+		# string. Default: [/usr/share/icons/gnome/32x32/status/]gtk-dialog-info[.png]
