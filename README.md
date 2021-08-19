@@ -1,5 +1,5 @@
 # Pinghy
-An inflatable rescue wireless access point for Raspberry Pis made for RaspiOS.
+An inflatable rescue wireless access point for Raspberry Pi made for RaspiOS.
 
 ## About this project
 This project is in the public domain. Please make it your own.
@@ -24,11 +24,11 @@ To use desktop notifications, 2 extra packages have to be installed on top of th
 
 Pinghy is activated by user inputs via `triggerhappy`. Pinghy handles itself: *i.* the configuration of the wireless phy according to the command received or to the current state of the wireless access point, *ii.* sending feedback to local and remote users of the machine. All the rest is done by `dhcpcd` (L2 network configuration, via `wpa_supplicant`) and `systemd-networkd` (L3 network configuration.)
 
-To make state changes on the wireless interface easier to manage for the OS, Pinghy exports the wireless phy to a temporary namespace, reconfigures it within the namespace, and brings the phy back to the default linux namespace.
+To make state changes on the wireless interface easier to manage for the OS, Pinghy exports the wireless phy to a temporary network namespace, reconfigures it within the namespace, and brings the phy back to the default linux namespace.
 <br/>Processes running on RaspiOS see the wireless interface disappear and then come back, as if an USB adapter was removed and (a slighly different one) was added. Such events are handled in a robust manner by Linux, making Pinghy repeatable enough for button control.
 
-Pinghy's state depends on a single information: presence or absence of a well-known wireless interface called `rpi0`. If present Pinghy can be stopped, if absent it can be started. State is assessed every time `pinghy.sh` runs. The special name `rpi0` is hardcoded throughout.
+Pinghy's state depends on a single information: presence or absence of a well-known wireless interface called `rpi0`. If present, Pinghy can be stopped; if absent, starting can be considered and -usually- executed. State is assessed every time `pinghy.sh` runs. The special name `rpi0` is hardcoded throughout.
 
 To install Pinghy to a suitable Raspberry Pi running RaspiOS, you'll need to copy files in this repository to `/opt/pinghy` on the target machine. Configuration files or fragments for the various RaspiOS packages are found in `/opt/pinghy/resources`. See also the `install_sh` convenience script.<br/>
-Page [Install](./install.md) goes through the process of installing and testing Pinghy.
+Page [install](./install.md) goes through the process of installing and testing Pinghy.
 

@@ -25,7 +25,7 @@ trap cleanup EXIT
 	if [ ${delta} -gt ${e_ds} ]; then
 		cnt=0 # too long, reset count
 	else
-		[ ${delta} -le ${e_ds} ] && cnt=$(( cnt + 1 )) # count hit
+		cnt=$(( cnt + 1 ))
 	fi
 	if [ ${cnt} -ge ${e_cn} ]; then
 		# Requires /etc/sudoers.d/020-pinghy-from-nobody

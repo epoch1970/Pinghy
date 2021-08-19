@@ -7,7 +7,7 @@ p_ui_msg=1	# Send text alerts to tell logged-in users AP on or off.
 		# bool. Default on (1)
 p_ui_msg_gui=0	# Send messages to GUI users via send-notify/notifyd.
 		# Depends on: "apt install xfce4-notifyd libnotify-bin".
-		# bool. Default on (1). Overriden by $p_ui_msg
+		# bool. Default off (0). Overriden by $p_ui_msg
 p_ui_msg_cli=1	# Broadcast a text message to CLI users via wall.
 		# bool. Default on (1). Overriden by $p_ui_msg
 p_ns_quiesce=0	# How many seconds minimum the phy has to stay away in its

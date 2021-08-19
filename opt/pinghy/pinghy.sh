@@ -149,7 +149,7 @@ notifs_ctl(){
 	[ "${p_ui_msg:-1}" -eq 1 ] || return 0
 	[ "${p_ui_msg_cli:-1}" -eq 1 ] && { wall "$(_notif_msg ${1} cli)" 2>/dev/null || true ; }
 	# GUI notifs, a bit more complex than wall.
-	[ "${p_ui_msg_gui:-1}" -eq 0 ] && return 0
+	[ "${p_ui_msg_gui:-0}" -eq 0 ] && return 0
 	while read -r line; do
 		id="${line%% *}"
 		local cnt=0; local disp=; local uid=; local user=
