@@ -130,7 +130,7 @@ country 00: DFS-UNSET
 	(5735 - 5835 @ 80), (N/A, 20), (N/A), PASSIVE-SCAN
 	(57240 - 63720 @ 2160), (N/A, 0), (N/A)
 ```
- - Start `raspi-config_mod` to configure wireless and connect the Raspberry Pi to a local network. `raspi-config_mod` is a copy of the original `raspi-config` script utility, with a couple of changes to make it ignore the special AP interface `rpi0`:
+ - Start `raspi-config_mod` to configure wireless and connect the Raspberry Pi to a local network. `raspi-config_mod` is a copy of the original `raspi-config` script utility, with a couple of changes to make it deal with the special AP interface `rpi0`:
 ```
 pi@raspberrypi:~ $ cd /opt/pinghy/
 pi@raspberrypi:/opt/pinghy $ sudo ./raspi-config_mod
