@@ -19,7 +19,7 @@ Pinghy alerts all local and remote users of the machine when the access point is
 Pinghy is suited to transient and light use, such as connecting to a machine in order to fix its network connection, or providing a captive network for a few wireless sensors. Pinghy doesn't provide a general purpose wireless access point. It's a dinghy, not a battleship.
 
 ## About the repository
-The original portions of Pinghy are written in shell (dash on RaspiOS). The code ties together a number a number of software packages preinstalled on RaspiOS: `dhcpcd`, `systemd-networkd`, `triggerhappy`, `sudo`, `ip-netns`, `wpa_supplicant`.<br/>
+The original portions of Pinghy are written in shell (dash on RaspiOS). The code ties together a number of software packages preinstalled on RaspiOS: `dhcpcd`, `systemd-networkd`, `triggerhappy`, `sudo`, `ip-netns`, `wpa_supplicant`.<br/>
 To use desktop notifications, 2 extra packages have to be installed on top of the Dekstop version of RaspiOS: `xfce4-notifyd` (server), `libnotify-bin` (CLI client).
 
 Pinghy is activated by user inputs via `triggerhappy`. Pinghy handles itself: *i.* the configuration of the wireless phy according to the command received or to the current state of the wireless access point, *ii.* sending feedback to local and remote users of the machine. All the rest is done by `dhcpcd` (L2 network configuration, via `wpa_supplicant`) and `systemd-networkd` (L3 network configuration.)
