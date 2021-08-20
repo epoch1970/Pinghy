@@ -137,7 +137,7 @@ leds_ctl(){
 				echo 1 > "/sys/class/leds/${l}/brightness"
 				sleep .200 # staggered blinking?
 			;;
-			'0')	[ -d "${store}/leds/${led}" ] || return 0
+			'0')	[ -d "${store}/leds/${led}" ] || continue
 				local l; l="$(cat ${store}/leds/${led}/label)"
 				cat "${store}/leds/${led}/trigger" > "/sys/class/leds/${l}/trigger"
 				echo 1 > "/sys/class/leds/${l}/brightness"
