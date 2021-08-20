@@ -6,7 +6,7 @@ This project is in the public domain. Please make it your own.
 
 Many users of Raspberry Pi SBCs are new to installing an OS to an embedded platform, and/or deploy their Raspberry Pis without screen and keyboard. These circumstances can lead less experienced users to lose access to their own machine.
 
-Pinghy uses the wireless interface built in many models of Raspberry Pi to setup an open access point on demand, allowing users to reach their Raspberry Pi with ease. The created access point is open, no password required.
+Pinghy uses the wireless interface built in many models of Raspberry Pi to setup an access point on demand, allowing users to reach their Raspberry Pi with ease. The created access point is open, no password required.
 
 Pinghy responds to inputs from the local user, via a button wired to the built in GPIO interface of Raspberry Pi, or via keyboard keystrokes. User proximity with the machine is made a requirement since the open wireless access point creates a security risk in the vicinity of the machine.<br/>
 Note: In this prototype it is possible to launch the Pinghy executable remotely, from an SSH session for example, and start the access point. This is **not** desirable.
